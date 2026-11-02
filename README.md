@@ -1,79 +1,43 @@
-<<<<<<< HEAD
-# React + TypeScript + Vite
+# Churucutitos Dev
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sitio web del estudio **Churucutitos Dev**: página de contacto y base de una
+app modular donde se irán mostrando los módulos que desarrollemos.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19 + TypeScript
+- Vite
+- Tailwind CSS v4
+- Componentes UI al estilo shadcn/ui
+- lucide-react para iconografía
 
-## React Compiler
+## Concepto visual
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Interfaz clara sobre blanco con acentos vivos (azul glaciar, cian, verde
+montaña), centrada en montañas, nieve y viento. Incluye escenas SVG, partículas
+de nieve y líneas de viento animadas, respetando `prefers-reduced-motion`.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Estructura
 
 ```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+src/
+  components/
+    decor/        Escenas de montaña, nieve y viento
+    sections/     Módulos, equipo, proceso y contacto
+    ui/           Componentes base de interfaz
+  data/site.ts    Contenido editable: perfil, equipo, módulos y proceso
 ```
-=======
-# churucutitos_site
->>>>>>> b5191e207c24258ad18ebf7b532c36c8da1c6c1e
+
+Para agregar un módulo nuevo, añade un objeto al arreglo `modules` en
+`src/data/site.ts`. La sección de módulos, los filtros y la vista previa del
+hero se actualizan automáticamente.
+
+## Scripts
+
+```bash
+npm install
+npm run dev
+npm run build
+npm run lint
+npm run preview
+```
